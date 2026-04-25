@@ -1,1 +1,51 @@
-<h1>Hello Divya 👋</h1>
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Sticky Cart</title>
+  <style>
+    body { height: 2000px; font-family: Arial; }
+    .buy-btn {
+      margin-top: 400px;
+      display: block;
+      padding: 10px;
+      background: black;
+      color: white;
+      text-align: center;
+      width: 200px;
+    }
+    #sticky-bar {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      background: black;
+      color: white;
+      text-align: center;
+      padding: 15px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+
+<a class="buy-btn">Add to Cart</a>
+
+<div id="sticky-bar">Sticky Add to Cart</div>
+
+<script>
+window.addEventListener("scroll", function() {
+  let btn = document.querySelector(".buy-btn");
+  let sticky = document.getElementById("sticky-bar");
+
+  let rect = btn.getBoundingClientRect();
+
+  if (rect.bottom < 0) {
+    sticky.style.display = "block";
+  } else {
+    sticky.style.display = "none";
+  }
+});
+</script>
+
+</body>
+</html>
